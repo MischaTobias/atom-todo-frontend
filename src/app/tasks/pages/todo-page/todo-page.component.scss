@@ -1,0 +1,33 @@
+.todo-container {
+  padding: 0 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button[mat-raised-button] {
+  font-weight: bold;
+}
+
+/* Make sure the button stays visible */
+.open-dialog-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;  /* Ensure it stays on top of other content */
+  padding: 10px 20px;
+  font-size: 1rem;
+}
+
+/* Adjust button for smaller screens */
+@media (max-width: 600px) {
+  .open-dialog-button {
+    bottom: 10px;
+    right: 10px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}

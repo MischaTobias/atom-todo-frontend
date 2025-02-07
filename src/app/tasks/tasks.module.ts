@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatCheckbox } from '@angular/material/checkbox';
 
 import { TaskItemComponent } from './components/task-item/task-item.component';
 import { TaskListComponent } from './components/task-list/task-list.component';
@@ -15,6 +16,7 @@ import { TaskFormComponent } from './components/task-form/task-form.component';
 import { TodoPageComponent } from './pages/todo-page/todo-page.component';
 
 import { TasksRoutingModule } from './tasks-routing.module';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { TasksRoutingModule } from './tasks-routing.module';
     TodoPageComponent,
   ],
   imports: [
+    ComponentsModule,
     CommonModule,
     TasksRoutingModule,
     FormsModule,
@@ -33,6 +36,7 @@ import { TasksRoutingModule } from './tasks-routing.module';
     MatDialogModule,
     MatFormFieldModule,
     MatSnackBarModule,
+    MatCheckbox,
   ],
 })
 export class TasksModule {}

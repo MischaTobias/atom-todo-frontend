@@ -1,6 +1,31 @@
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden;
+body.login-page {overflow: hidden;}
+
+/* Global Styles */
+mat-card {
+  width: 100%; /* Full width */
+  max-width: 400px; /* Limit width to a reasonable size */
+  margin: 10px auto; /* Centering the card */
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+@media (max-width: 600px) {
+  mat-card {
+    max-width: 100%; /* Let the card take the full width on small screens */
+    margin: 10px; /* Adjust the margin for small screens */
+  }
+}
+
+
+/* Global Styles for modals */
+::ng-deep .mat-dialog-container {
+  max-width: 95vw; /* Make sure it doesn't take up too much space on small screens */
+  width: 100%; /* Ensure it is 100% width on mobile devices */
+  margin: 0 auto; /* Centering the modal */
+}
+
+@media (max-width: 600px) {
+  ::ng-deep .mat-dialog-container {
+    max-width: 90vw; /* A little bit smaller width on very small screens */
+  }
 }

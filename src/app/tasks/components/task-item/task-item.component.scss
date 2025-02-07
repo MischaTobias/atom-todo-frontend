@@ -1,0 +1,23 @@
+.task-item {
+  margin: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+mat-card {
+  width: 100%;
+}
+
+mat-card-title {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+mat-card-content p {
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+mat-checkbox {
+  margin-right: 8px;
+}

@@ -10,14 +10,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { LoginFormComponent } from './components/login-form/login-form.component';
-import { UserDialogComponent } from './components/user-dialog/user-dialog.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 import { AuthRoutingModule } from './auth-routing.module';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
-  declarations: [LoginFormComponent, LoginPageComponent, UserDialogComponent],
+  declarations: [LoginFormComponent, LoginPageComponent],
   imports: [
+    ComponentsModule,
     CommonModule,
     AuthRoutingModule,
     FormsModule,

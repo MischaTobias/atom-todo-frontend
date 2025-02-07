@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import { AuthService } from '../../../services/auth/auth.service';
 import { MatDialog } from '@angular/material/dialog';
-import { UserDialogComponent } from '../../components/user-dialog/user-dialog.component';
+import { UserDialogComponent } from '../../../components/user-dialog/user-dialog.component';
 import { throwError } from 'rxjs';
 
 @Component({

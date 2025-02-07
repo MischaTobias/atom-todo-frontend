@@ -36,7 +36,7 @@ export class TaskService {
   }
 
   updateTask(task: Task): Observable<any> {
-    return this.http.put<any>(this.apiUrl, task).pipe(
+    return this.http.put<any>(`${this.apiUrl}/${task.id}`, task).pipe(
       map((response) => {
         return response;
       }),

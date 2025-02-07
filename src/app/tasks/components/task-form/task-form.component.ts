@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, Output } from '@angular/core';
 import { Task } from '../../models/Task';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-task-form',
@@ -10,21 +11,26 @@ import { Task } from '../../models/Task';
 export class TaskFormComponent {
   title: string = '';
   description: string = '';
+  isEditing: boolean = false;
 
   @Output() onAddTask = new EventEmitter<Task>();
 
-  constructor() {}
+  constructor(
+    public dialogRef: MatDialogRef<TaskFormComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: { title: string; description: string }
+  ) {
+    if (data) {
+      this.title = data.title;
+      this.description = data.description;
+      this.isEditing = true;
+    }
+  }
+
+  onClose() {
+    this.dialogRef.close();
+  }
 
   submit() {
-    console.log('Task submitted: ', this.title, this.description);
-
-    const task: Task = {
-      title: this.title,
-      description: this.description,
-    };
-
-    this.onAddTask.emit(task);
-    this.title = '';
-    this.description = '';
+    this.dialogRef.close({ title: this.title, description: this.description });
   }
 }

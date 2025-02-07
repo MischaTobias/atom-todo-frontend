@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Task } from '../../models/Task';
 import { TaskService } from '../../../services/tasks/task.service';
 
@@ -10,17 +10,21 @@ import { TaskService } from '../../../services/tasks/task.service';
 })
 export class TaskListComponent {
   @Input() tasks: Task[] = [];
+  @Output() onTaskModified = new EventEmitter<void>();
 
   constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {}
 
-  toggleCompletion(task: Task): void {
-    task.completed = !task.completed;
-    this.taskService.updateTask(task);
+  modifyTask(task: Task): void {
+    this.taskService.updateTask(task).subscribe((res) => {
+      this.onTaskModified.emit();
+    });
   }
 
   deleteTask(id: string): void {
-    this.taskService.deleteTask(id);
+    this.taskService.deleteTask(id).subscribe((res) => {
+      this.onTaskModified.emit();
+    });
   }
 }

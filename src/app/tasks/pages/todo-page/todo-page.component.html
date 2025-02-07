@@ -1,7 +1,15 @@
 <div class="todo-container">
-  <h2>Lista de Tareas</h2>
+  <div class="header">
+    <h2>Lista de Tareas</h2>
+    <button mat-raised-button color="warn" (click)="logout()">
+      Cerrar Sesión
+    </button>
+  </div>
 
-  <app-task-form (onAddTask)="createTask($event)"></app-task-form>
+  <app-task-list
+    [tasks]="tasks"
+    (onTaskModified)="refreshTasks()"
+  ></app-task-list>
 
-  <app-task-list [tasks]="tasks"></app-task-list>
+  <button mat-fab class="open-dialog-button" (click)="openDialog()">+</button>
 </div>
