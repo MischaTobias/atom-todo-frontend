@@ -1,6 +1,61 @@
-<div>
+<form #taskForm="ngForm" (ngSubmit)="submit()" class="task-form">
   <h3>Agregar tarea</h3>
-  <input [(ngModel)]="title" placeholder="Título de la tarea" />
-  <textarea [(ngModel)]="description" placeholder="Descripción"></textarea>
-  <button (click)="onAddTask()">Agregar</button>
-</div>
+
+  <mat-form-field
+    appearance="outline"
+    class="full-width"
+    style="display: block"
+  >
+    <mat-label>Título</mat-label>
+    <input
+      matInput
+      type="text"
+      id="title"
+      name="title"
+      [(ngModel)]="title"
+      required
+    />
+    <mat-error
+      *ngIf="
+        taskForm.controls['title']?.invalid &&
+        taskForm.controls['title']?.touched
+      "
+    >
+      Por favor, ingrese un título válido.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field
+    appearance="outline"
+    class="full-width"
+    style="display: block"
+  >
+    <mat-label>Descripción</mat-label>
+    <textarea
+      matInput
+      type="text"
+      id="description"
+      name="description"
+      [(ngModel)]="description"
+      required
+    ></textarea>
+    <mat-error
+      *ngIf="
+        taskForm.controls['description']?.invalid &&
+        taskForm.controls['description']?.touched
+      "
+    >
+      Por favor, ingrese una descripción válida.
+    </mat-error>
+  </mat-form-field>
+
+  <button
+    mat-raised-button
+    color="accent"
+    type="submit"
+    class="login-btn"
+    [disabled]="taskForm.invalid"
+  >
+    Agregar
+  </button>
+</form>

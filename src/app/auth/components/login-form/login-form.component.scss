@@ -1,0 +1,58 @@
+/* Ensure full-width for elements where needed */
+mat-form-field.full-width {
+  width: 100%;
+  margin-bottom: 20px;
+  display: block !important;
+}
+
+mat-form-field {
+  mat-label {
+    color: #4b5563;
+  }
+
+  input {
+    color: #111827;
+    font-size: 16px;
+    padding: 10px; // additional padding for improved readability
+  }
+
+  /* Customizing the outline appearance */
+  .mat-form-field-outline {
+    border-color: #d1d5db;
+  }
+
+  /* Highlight on focus */
+  &:focus-within .mat-form-field-outline {
+    border-color: #4f46e5;
+  }
+}
+
+.login-btn {
+  width: 100%; // button spans full width for consistency
+  height: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: white;
+  box-shadow: 0px 4px 10px rgba(79, 70, 229, 0.5);
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background: linear-gradient(135deg, #7c3aed, #4f46e5);
+    transform: scale(1.02); // slightly reduced scale for a smoother effect
+  }
+
+  &:disabled {
+    background: #9ca3af;
+    color: #e5e7eb;
+    cursor: not-allowed;
+  }
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}

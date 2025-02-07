@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Task } from '../../models/Task';
-import { TaskService } from '../../services/task.service';
+import { TaskService } from '../../../services/tasks/task.service';
 
 @Component({
   selector: 'app-task-list',
@@ -9,14 +9,15 @@ import { TaskService } from '../../services/task.service';
   styleUrls: ['./task-list.component.css'],
 })
 export class TaskListComponent {
-  public tasks: Task[] = [];
+  @Input() tasks: Task[] = [];
 
   constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {}
 
-  toggleCompletion(id: string): void {
-    this.taskService.toggleTaskCompletion(id);
+  toggleCompletion(task: Task): void {
+    task.completed = !task.completed;
+    this.taskService.updateTask(task);
   }
 
   deleteTask(id: string): void {

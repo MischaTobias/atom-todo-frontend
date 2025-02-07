@@ -1,0 +1,7 @@
+<div class="todo-container">
+  <h2>Lista de Tareas</h2>
+
+  <app-task-form (onAddTask)="createTask($event)"></app-task-form>
+
+  <app-task-list [tasks]="tasks"></app-task-list>
+</div>

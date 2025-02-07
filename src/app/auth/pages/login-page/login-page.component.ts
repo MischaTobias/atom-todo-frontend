@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { concatMap } from 'rxjs/operators';
-import { AuthService } from '../../services/auth.service';
+import { catchError } from 'rxjs/operators';
+import { AuthService } from '../../../services/auth/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UserDialogComponent } from '../../components/user-dialog/user-dialog.component';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -22,22 +23,18 @@ export class LoginPageComponent {
     this.authService
       .login(email)
       .pipe(
-        concatMap((successful) => {
-          if (!successful) {
+        catchError((error) => {
+          if (error.status === 404) {
             this.dialog.open(UserDialogComponent, {
               data: { message: 'User not found. Registering new user...' },
             });
             return this.authService.createUser(email);
-          } else {
-            return [] as any;
           }
+          return throwError(() => error);
         })
       )
       .subscribe({
         next: () => {
-          this.dialog.open(UserDialogComponent, {
-            data: { message: 'User created successfully!' },
-          });
           this.router.navigate(['/tasks']);
         },
         error: (err) => {

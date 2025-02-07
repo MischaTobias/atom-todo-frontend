@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { TaskService } from '../../services/task.service';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { Task } from '../../models/Task';
 
 @Component({
   selector: 'app-task-form',
@@ -11,19 +11,19 @@ export class TaskFormComponent {
   title: string = '';
   description: string = '';
 
-  constructor(private taskService: TaskService) {}
+  @Output() onAddTask = new EventEmitter<Task>();
 
-  onAddTask() {
-    const task = {
-      id: Date.now().toString(),
+  constructor() {}
+
+  submit() {
+    console.log('Task submitted: ', this.title, this.description);
+
+    const task: Task = {
       title: this.title,
       description: this.description,
-      createdAt: new Date().toLocaleString(),
-      userId: '1',
-      completed: false,
     };
 
-    this.taskService.addTask(task);
+    this.onAddTask.emit(task);
     this.title = '';
     this.description = '';
   }

@@ -15,25 +15,29 @@ export class AuthService {
   login(email: string): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/${email}`).pipe(
       map((response) => {
-        // You can handle successful login here, for example saving user data or tokens
+        if (response.jwt) {
+          localStorage.setItem('token', response.jwt);
+        }
         return response;
       }),
       catchError((error) => {
         console.error('Login failed', error);
-        throw error; // Optionally, you can return a fallback or an error message
+        throw error;
       })
     );
   }
 
   createUser(email: string): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}`, { email }).pipe(
+    return this.http.post<any>(this.apiUrl, { email }).pipe(
       map((response) => {
-        // Handle successful user creation, e.g., show a success message or redirect
+        if (response.status === 200 && response.data.token) {
+          localStorage.setItem('token', response.data.token);
+        }
         return response;
       }),
       catchError((error) => {
         console.error('User creation failed', error);
-        throw error; // Optionally, handle errors here
+        throw error;
       })
     );
   }

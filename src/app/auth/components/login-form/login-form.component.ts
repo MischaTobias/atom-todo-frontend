@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login-form',
@@ -9,9 +10,11 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class LoginFormComponent {
   email: string = '';
 
-  @Output() login = new EventEmitter<string>();
+  @Output() onLogin = new EventEmitter<string>();
 
-  async submit() {
-    this.login.emit(this.email);
+  async submit(form: NgForm) {
+    if (form.valid) {
+      this.onLogin.emit(this.email);
+    }
   }
 }

@@ -1,13 +1,7 @@
 <div *ngFor="let task of tasks">
-  <div>
-    <h3>{{ task.title }}</h3>
-    <p>{{ task.description }}</p>
-    <p>{{ task.createdAt }}</p>
-    <input
-      type="checkbox"
-      [(ngModel)]="task.completed"
-      (change)="toggleCompletion(task.id)"
-    />
-    <button (click)="deleteTask(task.id)">Eliminar</button>
-  </div>
+  <app-task-item
+    [task]="task"
+    (toggle)="toggleCompletion(task)"
+    (delete)="deleteTask($event)"
+  ></app-task-item>
 </div>
