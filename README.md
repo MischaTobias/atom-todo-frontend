@@ -6,6 +6,7 @@ This application is the frontend for the Todo App, a task management tool built 
 
 - [Live Demo](#live-demo)
 - [Built With](#built-with)
+- [Design Decisions](#-design-decisions)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -25,6 +26,12 @@ The application is hosted on:
 - **RxJS** - Reactive programming
 - **SCSS** - Styling
 - **JWT Authentication** - User authentication with tokens
+
+## 🏗 Design Decisions
+
+- **Angular Material** was chosen over Bootstrap for better integration with Angular.
+- **Modular and reusable component structure** ensures maintainability.
+- **Guards and HttpInterceptor** are used for authentication management.
 
 ## ✅ Features
 
