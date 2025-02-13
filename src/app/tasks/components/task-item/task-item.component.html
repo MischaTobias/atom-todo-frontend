@@ -5,7 +5,7 @@
 
   <mat-card-content>
     <p>{{ task.description }}</p>
-    <p><strong>Created:</strong> {{ task.createdAt | date }}</p>
+    <p><strong>Creado:</strong> {{ task.createdAt | date }}</p>
   </mat-card-content>
 
   <mat-card-actions>
@@ -14,7 +14,7 @@
       (change)="onToggle()"
       (click)="$event.stopPropagation()"
     >
-      Completed
+      Completado
     </mat-checkbox>
 
     <button mat-raised-button color="warn" (click)="onDelete()">

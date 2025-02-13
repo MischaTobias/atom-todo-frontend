@@ -4,14 +4,14 @@ This application is the frontend for the Todo App, a task management tool built 
 
 ## 🚀 Content
 
-- [Live Demo](#live-demo)
-- [Built With](#built-with)
+- [Live Demo](#-live-demo)
+- [Built With](#-built-with)
 - [Design Decisions](#-design-decisions)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Best Practices](#best-practices)
+- [Features](#-features)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Project Structure](#-project-structure)
+- [Best Practices](#-best-practices)
 
 ## 🎯 Live Demo
 

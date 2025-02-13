@@ -1,24 +1,24 @@
-<h2 mat-dialog-title *ngIf="!isEditing">Create a New Task</h2>
-<h2 mat-dialog-title *ngIf="isEditing">Edit Task</h2>
+<h2 mat-dialog-title *ngIf="!isEditing">Crear una nueva tarea</h2>
+<h2 mat-dialog-title *ngIf="isEditing">Editar Tarea</h2>
 <mat-dialog-content>
   <mat-form-field appearance="fill" style="display: block">
-    <mat-label>Task Title</mat-label>
+    <mat-label>Título</mat-label>
     <input matInput [(ngModel)]="title" required />
   </mat-form-field>
   <mat-form-field appearance="fill" style="display: block">
-    <mat-label>Task Description</mat-label>
+    <mat-label>Descripción</mat-label>
     <textarea matInput [(ngModel)]="description"></textarea>
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button (click)="onClose()">Cancel</button>
+  <button mat-button (click)="onClose()">Cancelar</button>
   <button
     mat-raised-button
     color="primary"
     (click)="submit()"
     *ngIf="!isEditing"
   >
-    Create Task
+    Crear Tarea
   </button>
   <button
     mat-raised-button
@@ -26,6 +26,6 @@
     (click)="submit()"
     *ngIf="isEditing"
   >
-    Update Task
+    Actualizar Tarea
   </button>
 </mat-dialog-actions>
